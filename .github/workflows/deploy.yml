@@ -1,0 +1,32 @@
+name: Deploy Vite Project to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Dispara la acción cuando hay cambios en la rama 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Ajusta a la versión que necesites, v20 es estable
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build # Este comando creará la carpeta /dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # Le dice a GH Pages que suba el contenido de la carpeta /dist
+          cname: 'gemmaclaverodelmoral.github.io' # Opcional: Para asegurar el nombre de dominio
