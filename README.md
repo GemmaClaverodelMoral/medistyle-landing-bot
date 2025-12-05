@@ -3,6 +3,7 @@
 ## Project info
 
 **URL personal**: https://gemmaclaverodelmoral.github.io/medistyle-landing-bot/
+
 **URL generada por Lovable**: https://lovable.dev/projects/fa3e7e8f-12ea-4d41-8d96-400f138df6d0
 
 ## How can I edit this code?
